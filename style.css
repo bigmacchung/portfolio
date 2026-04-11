@@ -1,6 +1,6 @@
 body {
   font: 100%/1.5 system-ui;
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+  padding: 0 1em;
 }
