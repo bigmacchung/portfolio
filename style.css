@@ -84,3 +84,26 @@ h1, h2, h3, h4, h5, h6 {
 .projects article img {
   width: 100%;
 }
+
+.cv section {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+.cv h2 {
+  color: var(--color-accent);
+}
+
+.cv article {
+  margin-bottom: 1em;
+}
+
+.cv article h3 {
+  margin: 0;
+}
+
+.cv time {
+  color: oklch(50% 3% 200);
+  font-size: 0.9em;
+}
