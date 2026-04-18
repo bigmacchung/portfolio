@@ -1,4 +1,8 @@
 html {
+  /* Allow the browser to render in either light or dark mode
+     based on the user's OS preference (or what we set via JS). */
+  color-scheme: light dark;
+
   --color-accent: oklch(65% 50% 0);
   accent-color: var(--color-accent);
 }
@@ -11,9 +15,12 @@ body {
 }
 
 nav {
+  /* Semi-transparent border that adapts nicely to both light and dark mode. */
+  --border-color: oklch(50% 10% 200 / 40%);
+
   display: flex;
   margin-bottom: 1em;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -25,17 +32,19 @@ nav a {
 }
 
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
+  border-bottom: 0.4em solid var(--border-color);
   padding-bottom: 0.1em;
 }
 
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  /* Mix the accent color with the current background so the hover color
+     stays legible in both light and dark mode. */
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-input, textarea, button {
+input, textarea, select, button {
   font: inherit;
 }
 
@@ -88,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 .cv section {
   margin-bottom: 2em;
   padding-bottom: 1em;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  border-bottom: 1px solid oklch(50% 10% 200 / 40%);
 }
 
 .cv h2 {
@@ -106,4 +115,17 @@ h1, h2, h3, h4, h5, h6 {
 .cv time {
   color: oklch(50% 3% 200);
   font-size: 0.9em;
+}
+
+/* ---------- Dark-mode switcher ---------- */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
+
+.color-scheme select {
+  font-family: inherit;
 }
