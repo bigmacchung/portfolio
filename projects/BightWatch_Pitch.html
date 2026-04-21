@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BightWatch — Pitch (DataHacks 2026 · Product & Entrepreneurship Track)</title>
+
+<!-- Mermaid (only external dependency) -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.mermaid) {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: { curve: "basis", htmlLabels: true, padding: 28, nodeSpacing: 70, rankSpacing: 80 },
+        themeVariables: {
+          fontFamily: "Inter, system-ui, sans-serif",
+          fontSize: "18px",
+          primaryColor: "#e6eef8",
+          primaryTextColor: "#0b2545",
+          primaryBorderColor: "#1d4ed8",
+          lineColor: "#1d4ed8",
+          secondaryColor: "#fff7e6",
+          tertiaryColor: "#ecfdf5"
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  :root {
+    --navy: #0b2545;
+    --navy-2: #13315c;
+    --blue: #1d4ed8;
+    --blue-2: #2563eb;
+    --ink: #1f2a44;
+    --muted: #64748b;
+    --paper: #ffffff;
+    --bg: #f6f9fc;
+    --bg-2: #eef3fa;
+    --accent: #0ea5a8;
+    --warn: #b45309;
+    --good: #15803d;
+    --bad: #b91c1c;
+    --line: #d9e2ec;
+    --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --shadow-2: 0 6px 24px rgba(15, 23, 42, 0.10);
+    --radius: 14px;
+    --maxw: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4 { color: var(--navy); margin: 0 0 0.5rem 0; line-height: 1.25; font-weight: 700; letter-spacing: -0.01em; }
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy-2); }
+  p { margin: 0 0 0.8rem 0; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Top nav */
+  .topnav {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .topnav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0.6rem 1.25rem;
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-weight: 700; color: var(--navy);
+  }
+  .brand .logo {
+    width: 26px; height: 26px; border-radius: 6px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #0ea5a8 100%);
+    display: inline-block;
+  }
+  .nav-links {
+    display: flex; gap: 0.3rem; flex-wrap: wrap; margin-left: auto;
+    font-size: 0.82rem;
+  }
+  .nav-links a {
+    color: var(--navy-2); padding: 0.35rem 0.6rem; border-radius: 6px;
+  }
+  .nav-links a:hover { background: var(--bg-2); text-decoration: none; }
+
+  /* Slide shell */
+  section.slide {
+    min-height: 85vh;
+    padding: 3.5rem 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .slide-inner {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  /* Alternating light/white backgrounds — EXCLUDING hero so its gradient wins */
+  section.slide:not(.hero):nth-of-type(even) { background: var(--paper); }
+  section.slide:not(.hero):nth-of-type(odd)  { background: var(--bg); }
+
+  /* Hero */
+  section.slide.hero {
+    background: linear-gradient(135deg, #0b2545 0%, #13315c 55%, #1d4ed8 100%) !important;
+    color: #fff;
+    min-height: 88vh;
+  }
+  .hero h1, .hero h2, .hero h3, .hero p, .hero .tagline, .hero .hero-card { color: #fff; }
+  .hero .eyebrow {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 999px;
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    color: #ffe8a6;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-size: 3.6rem;
+    margin-bottom: 0.6rem;
+    color: #ffffff !important;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+  }
+  .hero .tagline {
+    font-size: 1.35rem;
+    opacity: 0.97;
+    max-width: 780px;
+    color: #f1f5ff !important;
+  }
+  .hero-card {
+    margin-top: 1.75rem; padding: 1.25rem 1.5rem;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: var(--radius);
+    max-width: 780px;
+    font-size: 1rem;
+    color: #f1f5ff !important;
+  }
+  .hero-card b { color: #ffe8a6; }
+
+  /* User spotlight */
+  .user-spotlight {
+    background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+    border: 2px solid #f59e0b;
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    box-shadow: var(--shadow-2);
+    max-width: 920px;
+    margin: 1.5rem auto;
+    position: relative;
+  }
+  .user-spotlight::before {
+    content: "★ OUR USER";
+    position: absolute; top: -14px; left: 24px;
+    background: #f59e0b; color: #fff;
+    padding: 0.25rem 0.75rem; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+  }
+  .user-spotlight .big-line {
+    font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+  .user-spotlight .sub-line { color: var(--navy-2); font-size: 1rem; }
+  .user-spotlight .kicker {
+    margin-top: 1rem; color: #92400e; font-size: 0.95rem;
+  }
+
+  /* Cards / Grid */
+  .grid-2 {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .grid-3 {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  @media (max-width: 860px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.4rem; }
+    h1 { font-size: 2.1rem; }
+    h2 { font-size: 1.6rem; }
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.35rem;
+    box-shadow: var(--shadow);
+  }
+  .card h3 { margin-top: 0; }
+  .card .label {
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--blue-2); font-weight: 600;
+  }
+  .stat-card { text-align: center; padding: 1.5rem 1rem; }
+  .stat-card .num {
+    font-size: 2.5rem; font-weight: 800; color: var(--blue-2); line-height: 1;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stat-card .cap {
+    font-size: 0.82rem; color: var(--muted); letter-spacing: 0.02em;
+  }
+
+  /* Scenario card (page 2) — the "day in her life" storyboard */
+  .scenario-row-2 {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 860px) { .scenario-row-2 { grid-template-columns: 1fr; } }
+  .scen {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--blue-2);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.25rem 1.1rem;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .scen .scen-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--blue-2); font-weight: 700;
+  }
+  .scen .scen-head {
+    font-size: 1.1rem; font-weight: 700; color: var(--navy);
+    line-height: 1.3;
+  }
+  .scen .scen-body { font-size: 0.92rem; color: var(--ink); line-height: 1.5; }
+  .scen .scen-tag {
+    margin-top: 0.4rem;
+    font-size: 0.78rem; color: var(--muted); font-style: italic;
+  }
+
+  /* Visual flow */
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.35rem;
+    align-items: stretch;
+    margin: 1.25rem 0;
+  }
+  .flow .step {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem 0.75rem 0.9rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column; justify-content: flex-start; gap: 0.35rem;
+  }
+  .flow .step .n {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--blue-2); color: #fff; font-weight: 700;
+    margin: 0 auto 0.35rem;
+    font-size: 0.95rem;
+  }
+  .flow .step .t { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+  .flow .step .d { font-size: 0.78rem; color: var(--muted); }
+  .flow .step:not(:last-child)::after {
+    content: "\2192";
+    position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+    color: var(--blue-2); font-weight: 700; font-size: 1.1rem;
+    background: var(--bg); width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  @media (max-width: 860px) {
+    .flow { grid-template-columns: 1fr; }
+    .flow .step:not(:last-child)::after {
+      content: "\2193";
+      right: 50%; top: auto; bottom: -14px; transform: translateX(50%);
+    }
+  }
+
+  /* 4-step flow */
+  .flow-4 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem;
+    margin: 1.25rem 0;
+  }
+  .flow-4 .step {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem 0.9rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .flow-4 .step .icon {
+    font-size: 1.7rem; color: var(--blue-2); margin-bottom: 0.3rem;
+  }
+  .flow-4 .step .t { font-weight: 700; color: var(--navy); font-size: 0.98rem; }
+  .flow-4 .step .d { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+  .flow-4 .step:not(:last-child)::after {
+    content: "\2192";
+    position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+    color: var(--blue-2); font-weight: 700; font-size: 1.1rem;
+    background: var(--bg); width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  @media (max-width: 860px) {
+    .flow-4 { grid-template-columns: 1fr; }
+    .flow-4 .step:not(:last-child)::after { content: "\2193"; right: 50%; top: auto; bottom: -14px; transform: translateX(50%); }
+  }
+
+  /* Mermaid wrapper — MUCH BIGGER now */
+  .mermaid-wrap {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    margin: 1rem 0 0.5rem;
+  }
+  .mermaid-controls {
+    display: flex; gap: 0.3rem; justify-content: flex-end; margin-bottom: 0.5rem;
+  }
+  .mermaid-controls button {
+    background: var(--bg-2); border: 1px solid var(--line);
+    padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer;
+    font-size: 0.85rem; color: var(--navy); font-weight: 600;
+  }
+  .mermaid-controls button:hover { background: var(--blue-2); color: #fff; border-color: var(--blue-2); }
+  .mermaid-scroll {
+    overflow: auto;
+    min-height: 720px;
+    max-height: 900px;
+    text-align: center;
+    border-radius: 8px;
+    background: #fafcff;
+    padding: 1rem;
+  }
+  .mermaid-zoom {
+    display: inline-block;
+    transform-origin: top center;
+    transition: transform 0.2s ease;
+  }
+  .mermaid-wrap .mermaid {
+    background: transparent;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+  }
+  .mermaid-wrap .mermaid svg {
+    max-width: none !important;
+    height: auto !important;
+  }
+
+  /* Tables */
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 0.75rem 0 0.5rem;
+  }
+  table.data th, table.data td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left; vertical-align: top;
+  }
+  table.data th {
+    background: var(--bg-2); font-weight: 700; color: var(--navy);
+    font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  table.data tr:last-child td { border-bottom: none; }
+  table.data tbody tr:hover { background: #fafcff; }
+
+  /* Badges */
+  .badge {
+    display: inline-block; padding: 0.15rem 0.55rem;
+    border-radius: 999px; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .badge-A { background: #dcfce7; color: #14532d; }
+  .badge-B { background: #e0f2fe; color: #075985; }
+  .badge-C { background: #fef9c3; color: #854d0e; }
+  .badge-D { background: #ffedd5; color: #9a3412; }
+  .badge-E { background: #fee2e2; color: #991b1b; }
+  .badge-F { background: #fee2e2; color: #7f1d1d; border: 1px solid #991b1b; }
+
+  /* Glossary term hover */
+  .term {
+    border-bottom: 1.5px dotted var(--blue-2);
+    cursor: help;
+    position: relative;
+    font-weight: 500;
+    color: var(--navy-2);
+  }
+  .term:hover { color: var(--blue-2); }
+  .term::after {
+    content: attr(data-def);
+    position: absolute; left: 0; top: 100%;
+    background: var(--navy); color: #fff;
+    font-weight: 400; font-size: 0.82rem;
+    padding: 0.6rem 0.8rem; border-radius: 8px;
+    min-width: 260px; max-width: 340px;
+    opacity: 0; pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 20;
+    box-shadow: var(--shadow-2);
+    line-height: 1.4;
+    white-space: normal;
+  }
+  .term:hover::after { opacity: 1; transform: translateY(8px); }
+
+  /* Callouts */
+  .callout {
+    border-left: 4px solid var(--blue-2);
+    background: var(--bg-2);
+    padding: 0.9rem 1.1rem; border-radius: 8px;
+    margin: 0.8rem 0;
+  }
+  .callout.warn { border-color: var(--warn); background: #fff7ed; }
+  .callout.good { border-color: var(--good); background: #ecfdf5; }
+  .callout.bad  { border-color: var(--bad);  background: #fef2f2; }
+  .callout .lbl {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 700; color: var(--navy-2); display: block; margin-bottom: 0.2rem;
+  }
+
+  .section-head { margin-bottom: 1.25rem; }
+  .section-head .number {
+    display: inline-block;
+    font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 700;
+    color: var(--blue-2); margin-bottom: 0.25rem;
+  }
+
+  /* Opportunity sizing */
+  .formula-box {
+    background: #0b2545; color: #eaf2ff;
+    padding: 1.2rem 1.4rem; border-radius: 10px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 1rem; line-height: 1.65;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-2);
+    overflow-x: auto;
+  }
+  .formula-box .lbl {
+    color: #ffd580; font-weight: 700;
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .scenario-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin: 1rem 0;
+  }
+  @media (max-width: 860px) { .scenario-row { grid-template-columns: 1fr; } }
+  .scenario {
+    padding: 1.1rem 1rem; border-radius: 10px; text-align: center;
+    border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow);
+  }
+  .scenario.pess { border-top: 4px solid #b45309; }
+  .scenario.base { border-top: 4px solid #1d4ed8; background: #f0f6ff; }
+  .scenario.opt  { border-top: 4px solid #15803d; }
+  .scenario .name {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 700; color: var(--navy-2);
+  }
+  .scenario .amt { font-size: 1.9rem; font-weight: 800; color: var(--navy); margin: 0.25rem 0; }
+  .scenario .sub { font-size: 0.82rem; color: var(--muted); }
+
+  /* Glossary */
+  .glossary-search {
+    width: 100%; padding: 0.8rem 1rem; font-size: 1rem;
+    border: 1px solid var(--line); border-radius: 10px;
+    margin-bottom: 1rem;
+    background: #fff;
+  }
+  .glossary-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1.25rem;
+  }
+  @media (max-width: 860px) { .glossary-grid { grid-template-columns: 1fr; } }
+  .glossary-item {
+    padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--line);
+    font-size: 0.92rem;
+  }
+  .glossary-item b { color: var(--navy); }
+
+  footer {
+    background: var(--navy);
+    color: #cdd7e9;
+    padding: 2rem 1.25rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  footer a { color: #ffd580; }
+  footer .small { color: #94a3b8; font-size: 0.78rem; margin-top: 0.5rem; }
+
+  /* Print */
+  @media print {
+    .topnav, .nav-links, .mermaid-controls, .glossary-search { display: none !important; }
+    section.slide { min-height: auto; padding: 1.25rem 0.75rem; break-inside: avoid; page-break-inside: avoid; }
+    section.slide.hero {
+      background: #0b2545 !important; color: #fff !important;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    body { background: #fff; font-size: 11pt; }
+    .term::after { display: none; }
+    .mermaid-scroll { max-height: none; min-height: 0; overflow: visible; }
+  }
+
+  .muted { color: var(--muted); }
+  .small { font-size: 0.85rem; }
+  .center { text-align: center; }
+  .mt-0 { margin-top: 0; }
+  .mt-1 { margin-top: 0.5rem; }
+  .mt-2 { margin-top: 1rem; }
+  .mt-3 { margin-top: 1.5rem; }
+  .ul-clean { padding-left: 1.2rem; margin: 0.5rem 0 0.8rem; }
+  .ul-clean li { margin-bottom: 0.25rem; }
+  .pill {
+    display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; background: var(--bg-2); color: var(--navy-2);
+    border: 1px solid var(--line);
+  }
+  .pill-accent { background: #e0f2fe; color: #075985; border-color: #bae6fd; }
+  .pill-warn   { background: #fff7ed; color: #9a3412; border-color: #fed7aa; }
+  .pill-good   { background: #ecfdf5; color: #14532d; border-color: #bbf7d0; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="brand"><span class="logo"></span> BightWatch</div>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#user">User</a>
+      <a href="#problem">Problem</a>
+      <a href="#landscape">Landscape</a>
+      <a href="#fit">Fit</a>
+      <a href="#product">Product</a>
+      <a href="#rigor">Rigor</a>
+      <a href="#opportunity">Sizing</a>
+      <a href="#stance">Stance</a>
+      <a href="#ask">Ask</a>
+      <a href="#glossary">Glossary</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<section id="hero" class="slide hero">
+  <div class="slide-inner">
+    <div class="eyebrow">DataHacks 2026 &middot; Product &amp; Entrepreneurship</div>
+    <h1>BightWatch</h1>
+    <p class="tagline">A climate-adaptive <b>risk-monitoring</b> tool for California's Marine Protected Area network &mdash; so a small team with 124 MPAs can decide, every quarter, which zones of coastline need the closest attention next.</p>
+    <div class="hero-card">
+      <b>We rank, we don't regulate.</b> BightWatch scores the 13 CalCOFI zones inside the Southern California Bight for how much climate stress has built up, and suggests where the next cruise or sampling effort will do the most good.
+    </div>
+  </div>
+</section>
+
+<!-- 2. USER SPOTLIGHT -->
+<section id="user" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 02 &middot; WHO THIS IS FOR</span>
+      <h2>We built this for the people doing the real work.</h2>
+      <p class="muted">MPA managers and policy analysts who have to watch a lot of coastline with a finite team. Everything we designed starts from their day.</p>
+    </div>
+
+    <div class="user-spotlight">
+      <div class="big-line">A Senior Environmental Scientist at CDFW Marine Region's MPA Management Program.</div>
+      <div class="sub-line">Or, in parallel: an MPA Policy Analyst at the California Ocean Protection Council.</div>
+      <div class="kicker">We are here to support the hard work they already do &mdash; not to replace their judgment, and not to sell them a forecast.</div>
+    </div>
+
+    <h3 class="mt-3" style="text-align:center;">A small storyboard of her quarter.</h3>
+    <p class="small muted center" style="max-width:720px;margin:0 auto 0.5rem;">So judges can see the exact moment BightWatch fits into her work.</p>
+
+    <div class="scenario-row-2">
+      <div class="scen">
+        <div class="scen-eyebrow">Step 1 &middot; Monday morning</div>
+        <div class="scen-head">She opens six different dashboards to plan this quarter's cruise.</div>
+        <div class="scen-body">HABMAP pier samples, SCCOOS and CeNCOOS buoys, CalCOFI cruise records (last bottle-DB update: May 2021), NOAA OISST satellite tiles, internal agency briefings. Not one of them tells her <em>which zones need a boat first</em>. She decides in her head.</div>
+        <div class="scen-tag">This is the daily reality we want to make easier.</div>
+      </div>
+      <div class="scen">
+        <div class="scen-eyebrow">Step 2 &middot; Why now</div>
+        <div class="scen-head">The 2023 Decadal Review named the gap we are trying to fill.</div>
+        <div class="scen-body">Every ten years, OPC and CDFW publish a joint review of the MPA network. The 2023 report specifically flagged "climate-adaptive monitoring prioritization" as an unmet need. That is the seat we are sitting in. The next review window closes around 2028.</div>
+        <div class="scen-tag">Her deadline is a real, published agency document.</div>
+      </div>
+      <div class="scen">
+        <div class="scen-eyebrow">Step 3 &middot; What's at stake</div>
+        <div class="scen-head">Without better triage, big events catch the team late.</div>
+        <div class="scen-body">When the 2014&ndash;16 North Pacific "Blob" marine heatwave hit, a toxic algal bloom closed California's Dungeness crab fishery and CDFW spent roughly $2M on an emergency Blob Response. Catching that kind of signal a quarter earlier is the cost saving we care about.</div>
+        <div class="scen-tag">Earlier attention = smaller emergency later.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROBLEM + TRUE NORTH -->
+<section id="problem" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 03 &middot; THE OPERATIONAL QUESTION</span>
+      <h2>Which zones should we watch more closely next quarter &mdash; and why?</h2>
+      <p class="muted">The MPA network is 124 areas. A finite team cannot deeply monitor all of them every quarter. Triage is the real job.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="mt-0">What the question is <em>not</em></h3>
+        <ul class="ul-clean">
+          <li>Not a prediction of next month's HAB.</li>
+          <li>Not a recommendation to change fishing rules.</li>
+          <li>Not a climate attribution study.</li>
+          <li>Not a substitute for the MPA scientist's judgment &mdash; an input to it.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">What the question <em>is</em></h3>
+        <ul class="ul-clean">
+          <li>Where has upper-ocean stress drifted furthest from this zone's own baseline?</li>
+          <li>Which of those zones also overlap an active MPA or a high-fishing-pressure pocket?</li>
+          <li>Which is a next-cruise-worth adjustment &mdash; not a policy change?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout mt-3">
+      <span class="lbl">Our True North metric &mdash; in plain English</span>
+      <p style="margin-bottom:0.4rem"><b>Allocation-cycle influence rate</b> = the fraction of quarters where BightWatch's top-ranked zones received above-average monitoring effort the next quarter.</p>
+      <p style="margin-bottom:0.4rem">Said another way: <b>of the eight quarters in a two-year pilot, how many times did the tool actually change where the team sent a boat?</b></p>
+      <p style="margin-bottom:0"><b>Target &ge; 3 out of 8</b> (&asymp; 38%) &mdash; that's how we define success. <b>Floor &ge; 1 out of 8</b> &mdash; below that, we'd rather stop the pilot than pretend. We don't optimize for prediction accuracy, subscriber count, or HAB recall. We optimize for whether the tool gets used.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. LANDSCAPE -->
+<section id="landscape" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 04 &middot; COMPETITIVE LANDSCAPE</span>
+      <h2>The space is crowded. The specific seat is empty.</h2>
+      <p class="muted">There are world-class tools for HAB forecasting, ecosystem status, and biodiversity &mdash; but no one ranks the 13 CalCOFI-SCB zones for cruise-cycle triage.</p>
+    </div>
+
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Existing tool</th>
+          <th>Does really well</th>
+          <th>Why it does not replace us</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b><span class="term" data-def="California Harmful Algae Risk Mapping &mdash; NOAA/NCCOS forecast product for Pseudo-nitzschia and domoic acid along CA/OR.">C-HARM</span></b> (NOAA/NCCOS)</td>
+          <td>HAB forecast (<span class="term" data-def="Pseudo-nitzschia &mdash; the diatom genus whose bloom produces domoic acid; causes shellfish closures and crab-fishery events on the US West Coast.">Pseudo-nitzschia</span>, domoic acid) at 3km.</td>
+          <td>Species-specific, not zone-specific; doesn't speak cruise allocation.</td>
+        </tr>
+        <tr>
+          <td><b>CA HAB Bulletin</b> (CDPH / SCCOOS)</td>
+          <td>Public shellfish-safety bulletin.</td>
+          <td>Consumer-facing; does not rank monitoring zones.</td>
+        </tr>
+        <tr>
+          <td><b><span class="term" data-def="California Current Integrated Ecosystem Assessment &mdash; NOAA's annual status-of-the-ecosystem synthesis for the CCS.">CCIEA</span></b> (NOAA)</td>
+          <td>Annual CCS ecosystem status, publication-grade.</td>
+          <td>Annual cadence, basin scale &mdash; not the quarterly cruise cycle.</td>
+        </tr>
+        <tr>
+          <td><b><span class="term" data-def="Marine Life Protection Act network &mdash; CA's 124 MPAs; monitored jointly by CDFW, OPC, PISCO, Reef Check, MARINe.">MLPA</span></b> monitoring (PISCO, MARINe, Reef Check)</td>
+          <td>Site-level biology / biodiversity time-series.</td>
+          <td>Site-level, not zone-level; no climate-stress ranking.</td>
+        </tr>
+        <tr>
+          <td><b><span class="term" data-def="Harmful Algal Bloom Monitoring and Alert Program &mdash; SCCOOS partner sampling at piers.">HABMAP</span></b></td>
+          <td>Weekly pier samples for HAB species.</td>
+          <td>Pier-point, not spatial; no decision layer.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout good mt-2">
+      <span class="lbl">The unoccupied seat</span>
+      <p style="margin-bottom:0"><b>Zone-scale, cruise-cycle, climate-adaptive risk monitoring with a named action recommendation per zone.</b> That's us. Everyone else is adjacent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. WHERE WE FIT -->
+<section id="fit" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 05 &middot; WHERE WE FIT IN THE ECOSYSTEM</span>
+      <h2>We are the decision layer on top of the open data.</h2>
+      <p class="muted">We don't collect sensors. We don't publish bulletins. We take public feeds and give the MPA Management team a ranked list of zones with a named next action.</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <div class="mermaid-controls">
+        <button onclick="zoomMermaid(-0.15)">&minus; zoom out</button>
+        <button onclick="zoomMermaid(0)">reset</button>
+        <button onclick="zoomMermaid(0.15)">+ zoom in</button>
+      </div>
+      <div class="mermaid-scroll">
+        <div id="mermaidZoom" class="mermaid-zoom" style="transform: scale(1.3);">
+          <div class="mermaid">
+flowchart TD
+  classDef data fill:#e0f2fe,stroke:#0284c7,color:#075985,font-weight:700,font-size:18px
+  classDef product fill:#fef3c7,stroke:#d97706,color:#78350f,font-weight:700,stroke-width:4px,font-size:20px
+  classDef user fill:#dcfce7,stroke:#16a34a,color:#14532d,font-weight:700,font-size:18px
+  classDef buyer fill:#fce7f3,stroke:#be185d,color:#831843,font-weight:700,font-size:16px
+
+  subgraph DATA [1. Public data &amp; observations]
+    CAL[CalCOFI bottle DB<br/>1949 to May 2021]
+    OISST[OISST bridge<br/>sea-surface temp tiles]
+    BEUTI[BEUTI index<br/>upwelling]
+    HAB[HABMAP / SCCOOS / CeNCOOS<br/>HAB &amp; ocean obs]
+    MPA[MPA polygons<br/>13 CalCOFI-SCB zones]
+    CCIEA2[CCIEA annual synthesis]
+  end
+
+  subgraph BW [2. BightWatch decision layer]
+    SCORE[Zone stress score<br/>warming + anomaly]
+    RANK[Ranked queue of 13 zones<br/>with confidence badge]
+    ACT[Named action per zone<br/>investigate_now / schedule_cruise / hold]
+  end
+
+  subgraph USER [3. User: the MPA scientist]
+    SCI[Senior Environmental Scientist<br/>CDFW MPA Management]
+    OPC[MPA Policy Analyst<br/>CA OPC]
+  end
+
+  subgraph DECISION [4. Decisions downstream]
+    CRUISE[Next-quarter cruise plan]
+    TOW[Plankton tow allocation]
+    REPORT[Decadal Review inputs]
+    BRIEF[Exec briefings]
+  end
+
+  CAL --> SCORE
+  OISST --> SCORE
+  BEUTI --> SCORE
+  HAB --> SCORE
+  MPA --> RANK
+  CCIEA2 -.annual context.-> BW
+
+  SCORE --> RANK --> ACT
+
+  ACT --> SCI
+  ACT --> OPC
+
+  SCI --> CRUISE
+  SCI --> TOW
+  OPC --> REPORT
+  OPC --> BRIEF
+
+  class CAL,OISST,BEUTI,HAB,MPA,CCIEA2 data
+  class SCORE,RANK,ACT product
+  class SCI,OPC user
+  class CRUISE,TOW,REPORT,BRIEF buyer
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="small muted mt-1">Use the <b>zoom</b> controls above if the chart overflows; scroll to pan.</p>
+
+    <div class="grid-3 mt-3">
+      <div class="card">
+        <span class="label">We DO</span>
+        <p class="small mt-1">Score 13 zones, rank them, name the next action, expose a confidence badge, cite every number.</p>
+      </div>
+      <div class="card">
+        <span class="label">We DO NOT</span>
+        <p class="small mt-1">Collect sensors, predict HABs, publish bulletins, recommend closures, or replace the scientist's judgment.</p>
+      </div>
+      <div class="card">
+        <span class="label">We COEXIST</span>
+        <p class="small mt-1">With C-HARM, CCIEA, HABMAP, and MLPA monitoring. We ingest their outputs; we do not compete with them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PRODUCT -->
+<section id="product" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 06 &middot; WHAT WE BUILT</span>
+      <h2>Four steps. One screen. One decision.</h2>
+      <p class="muted">The scientist opens one page on Monday morning. That's the product.</p>
+    </div>
+
+    <div class="flow-4">
+      <div class="step">
+        <div class="icon">&#127754;</div>
+        <div class="t">Ingest</div>
+        <div class="d">CalCOFI bottle DB, OISST bridge, BEUTI, MPA polygons, fishing-pressure proxy.</div>
+      </div>
+      <div class="step">
+        <div class="icon">&#128208;</div>
+        <div class="t">Score</div>
+        <div class="d">Per-zone climate-stress risk score from warming + anomaly signals, robust-linear baseline.</div>
+      </div>
+      <div class="step">
+        <div class="icon">&#128203;</div>
+        <div class="t">Rank</div>
+        <div class="d">Ordered queue of 13 zones, each with a confidence badge so the team sees how much to trust the ranking.</div>
+      </div>
+      <div class="step">
+        <div class="icon">&#127919;</div>
+        <div class="t">Act</div>
+        <div class="d">Named action per zone: <code>investigate_now</code> / <code>schedule_next_cruise</code> / <code>hold</code>.</div>
+      </div>
+    </div>
+
+    <div class="grid-2 mt-3">
+      <div class="card">
+        <h3 class="mt-0">One screen, three columns</h3>
+        <ul class="ul-clean small">
+          <li><b>Risk Map</b> &mdash; the 13 zones, color-coded by their monitoring-priority risk score.</li>
+          <li><b>Zone card</b> &mdash; risk score, overlap with named MPAs, fishing pressure, confidence badge, and a short source-grounded summary.</li>
+          <li><b>Action queue</b> &mdash; the ranked list, one named action per row.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">One tone</h3>
+        <ul class="ul-clean small">
+          <li>We surface <b>risk per zone</b>, transparently &mdash; we don't hide it behind euphemisms.</li>
+          <li>Every number on the card traces back to a CSV cell &mdash; no free-form LLM guessing.</li>
+          <li>No number without a source; no action without a justification; no ranking without a confidence badge.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. RIGOR -->
+<section id="rigor" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 07 &middot; FIVE RIGOR COMMITMENTS</span>
+      <h2>We say what we don't know. Visibly. On the same screen as the answer.</h2>
+      <p class="muted">This is the only section that carries the confidence-badge table &mdash; so the honesty conversation lives where the data actually is.</p>
+    </div>
+
+    <div class="flow">
+      <div class="step">
+        <div class="n">1</div>
+        <div class="t">Every number is cited</div>
+        <div class="d">Traced to a CSV cell. No LLM hallucination in a displayed figure.</div>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div class="t">Every ranking has a badge</div>
+        <div class="d">A&ndash;F confidence grade per hypothesis. Never hidden.</div>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div class="t">Simpson's-paradox check</div>
+        <div class="d">Segment-first before aggregate. A5 gate has to clear.</div>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <div class="t">Back-test on the record</div>
+        <div class="d">2015 DA-bloom back-test (H3) &mdash; focal zone flagged; calibration still weak.</div>
+      </div>
+      <div class="step">
+        <div class="n">5</div>
+        <div class="t">Grounded LLM only</div>
+        <div class="d">Narrative sentences are templated over CSV cells. No CSV cell &rarr; neutral fallback.</div>
+      </div>
+    </div>
+
+    <h3 class="mt-3">The confidence-badge table (source: <code>outputs/thread_b/confidence_badges.csv</code>)</h3>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Hypothesis / capability</th>
+          <th>Badge</th>
+          <th>What it means</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>H1</b></td>
+          <td>Zone-level upper-ocean warming heterogeneity</td>
+          <td><span class="badge badge-D">D</span></td>
+          <td>B2/B3 full-data trends exist, but the A5 Simpson's-paradox gate is not yet complete.</td>
+        </tr>
+        <tr>
+          <td><b>H2</b></td>
+          <td>Lagged BEUTI relationship with larval anomaly</td>
+          <td><span class="badge badge-C">C</span></td>
+          <td>Strongest all-zone lag is 60 days with correlation &minus;0.242 &mdash; directional but noisy.</td>
+        </tr>
+        <tr>
+          <td><b>B5</b></td>
+          <td>Interpretable larval-risk baseline model</td>
+          <td><span class="badge badge-D">D</span></td>
+          <td>Holdout R<sup>2</sup> = &minus;0.68. Useful as an MVP ranking baseline, not as a prediction.</td>
+        </tr>
+        <tr>
+          <td><b>B6</b></td>
+          <td>Monitoring-priority queue and action mapping</td>
+          <td><span class="badge badge-C">C</span></td>
+          <td>Queue is generated end-to-end; schema is stable; this is our strongest delivered capability.</td>
+        </tr>
+        <tr>
+          <td><b>H3</b></td>
+          <td>2015 domoic-acid bloom focal-zone back-test</td>
+          <td><span class="badge badge-C">C</span></td>
+          <td>Focal zone <code>Z_93.3_inshore</code> flagged before April 2015 = True (first flag 2014-07-06). Calibration still weak.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn mt-2">
+      <span class="lbl">The honesty beat</span>
+      <p style="margin-bottom:0"><b>R<sup>2</sup> on the 2014&ndash;2021 holdout is &minus;0.68.</b> That's worse than predicting the mean. We disclose it <em>on the same screen</em> as the ranking. The ranking is useful; the prediction is not. We'd rather say that up front than have a reviewer find it later.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. OPPORTUNITY SIZING -->
+<section id="opportunity" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 08 &middot; OPPORTUNITY SIZING</span>
+      <h2>The business case &mdash; on one page, with assumptions labeled.</h2>
+      <p class="muted">Using the <code>opportunity-sizer</code> agent's framework: impact formula &rarr; base case &rarr; sensitivity &rarr; scenarios &rarr; break-even.</p>
+    </div>
+
+    <div class="formula-box">
+      <span class="lbl">Impact formula</span>
+      Annual impact = <b>Users affected</b> &times; <b>Improvement rate</b> &times; <b>Value per unit</b><br>
+      Annual impact &asymp; <b>2 agencies &times; ~8 cruise allocations/yr</b> &times; <b>~3 quarters shifted / 8</b> &times; <b>$40K avg cost of one mis-allocated cruise-cycle slot</b><br>
+      Annual impact &asymp; <b>$30K &ndash; $100K</b> Y1 design-partnership envelope &middot; <b>$400K &ndash; $700K</b> addressable TAM at maturity.
+    </div>
+
+    <table class="data">
+      <thead>
+        <tr><th>Component</th><th>Base value</th><th>Source</th><th>Confidence</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Users affected (agencies)</td>
+          <td>2 direct (CDFW MPA Mgmt, OPC) + 3 adjacent (CCC, WCRO, NMS)</td>
+          <td>Decadal Review org chart; THREAD_D &sect;6.2</td>
+          <td><span class="pill pill-good">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>Improvement rate (True North)</td>
+          <td>&ge; 3 of 8 quarters shifted (target); 1 of 8 (floor)</td>
+          <td>&sect; 03 True North; THREAD_D &sect;3.1</td>
+          <td><span class="pill">MED</span> &mdash; operational target, not yet observed</td>
+        </tr>
+        <tr>
+          <td>Value per unit (1 mis-allocated cruise cycle)</td>
+          <td>$30K &ndash; $60K (ship-time + staff + opportunity cost per avoided event)</td>
+          <td>Assumption anchored to CDFW Blob Response spend (~$2M for one multi-year event)</td>
+          <td><span class="pill pill-warn">LOW</span> &mdash; assumption</td>
+        </tr>
+        <tr>
+          <td>Y1 design-partnership envelope</td>
+          <td>$30K &ndash; $100K</td>
+          <td>THREAD_D &sect;6.3</td>
+          <td><span class="pill">MED</span> &mdash; benchmarked to sub-awards</td>
+        </tr>
+        <tr>
+          <td>Addressable TAM (core public-sector)</td>
+          <td>$400K &ndash; $700K / yr (CDFW + OPC + CCC + WCRO + NMS)</td>
+          <td>THREAD_D &sect;6.1</td>
+          <td><span class="pill pill-warn">LOW-MED</span> &mdash; market sizing</td>
+        </tr>
+        <tr>
+          <td>Comparable-spend anchor A</td>
+          <td>CDFW 2015 Blob Response &asymp; $2M one-time</td>
+          <td>Public CDFW reporting</td>
+          <td><span class="pill pill-good">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>Comparable-spend anchor B</td>
+          <td>Agency consultants: $200K &ndash; $600K / yr</td>
+          <td>THREAD_D &sect;6.2</td>
+          <td><span class="pill">MED</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="mt-3">Three scenarios</h3>
+    <div class="scenario-row">
+      <div class="scenario pess">
+        <div class="name">Pessimistic</div>
+        <div class="amt">$15K / yr</div>
+        <div class="sub">1 of 8 quarters shifted &middot; 1 agency &middot; no Y2 renewal</div>
+      </div>
+      <div class="scenario base">
+        <div class="name">Base case &middot; Y1</div>
+        <div class="amt">$30K &ndash; $100K</div>
+        <div class="sub">3 of 8 quarters shifted &middot; 1 design partner agency &middot; renewal probability ~50%</div>
+      </div>
+      <div class="scenario opt">
+        <div class="name">Optimistic &middot; Y3</div>
+        <div class="amt">$200K &ndash; $290K / yr</div>
+        <div class="sub">5 of 8 quarters shifted &middot; 2 agencies &middot; adjacent buyer added (WCRO or NMS)</div>
+      </div>
+    </div>
+
+    <div class="grid-2 mt-2">
+      <div class="card">
+        <h3 class="mt-0">Sensitivity &mdash; what moves the answer</h3>
+        <table class="data" style="font-size:0.82rem">
+          <thead><tr><th>Assumption</th><th>&minus;50%</th><th>Base</th><th>+50%</th></tr></thead>
+          <tbody>
+            <tr><td>Influence rate (target 3/8)</td><td>$15K</td><td><b>$45K</b></td><td>$75K</td></tr>
+            <tr><td>$/mis-allocated cycle</td><td>$20K</td><td><b>$45K</b></td><td>$70K</td></tr>
+            <tr><td># paying agencies Y1</td><td>$15K</td><td><b>$45K</b></td><td>$90K</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">Break-even</h3>
+        <ul class="ul-clean small">
+          <li>If <b>influence rate &lt; 1/8</b>, we stop the pilot.</li>
+          <li>If <b>Y1 contracted revenue &lt; $30K</b>, we do not have product-market fit with a public-sector buyer.</li>
+          <li>If <b>R<sup>2</sup> on holdout stays negative into Y2</b>, we narrow scope to ranking-only and publish that finding.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout mt-2">
+      <span class="lbl">Prioritization score</span>
+      <p style="margin-bottom:0">Impact &asymp; <b>$45K (base) / $245K (optimistic Y3)</b> &middot; Confidence multiplier &asymp; <b>0.5 (MED)</b> &middot; Effort for Y1 pilot &asymp; <b>2 FTE-quarters</b> &rarr; <b>Priority score &asymp; $22K per FTE-quarter.</b> This is a <em>public-sector, narrow-beachhead</em> play &mdash; the score is smaller than a typical B2B SaaS pitch, but the conversion path is deterministic.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9. STANCE -->
+<section id="stance" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 09 &middot; OUR STANCE</span>
+      <h2>We're trying to be useful to the people doing the work.</h2>
+      <p class="muted">A small, honest tool that helps a real team make a recurring quarterly decision a little bit better.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="mt-0">What we will do</h3>
+        <ul class="ul-clean">
+          <li>Ship a ranked risk queue of the 13 CalCOFI-SCB zones with a named action per row.</li>
+          <li>Publish the confidence-badge table on the same screen.</li>
+          <li>Cite every number to a CSV cell. Every time.</li>
+          <li>Use source-grounded Gemini &mdash; a templater, not a generator.</li>
+          <li>Disclose what our model can't do, on the ranking page, not in a footnote.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">What we will not do</h3>
+        <ul class="ul-clean">
+          <li>Not predict individual HAB events &mdash; C-HARM already does that well.</li>
+          <li>Not recommend regulatory closures &mdash; that's CDPH's role.</li>
+          <li>Not market to recreational users &mdash; wrong trust model.</li>
+          <li>Not paper over weak R<sup>2</sup> &mdash; honesty is the moat.</li>
+          <li>Not replace the MPA scientist's judgment &mdash; we augment it for one decision per quarter.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout good mt-2">
+      <span class="lbl">Why we're doing this</span>
+      <p style="margin-bottom:0">The MPA scientists we spoke with don't need another dashboard. They need a clearer, more defensible answer to one quarterly question. BightWatch is our small contribution to a large, important job &mdash; we want to do it carefully and honestly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10. ASK / ROADMAP -->
+<section id="ask" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 10 &middot; THE ASK</span>
+      <h2>A 2-year design partnership with one agency, starting this quarter.</h2>
+      <p class="muted">We're not raising venture capital. We're asking to work alongside one named scientist at CDFW or OPC for eight quarters, so we can measure whether the tool is actually useful.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card stat-card">
+        <span class="num">$30&ndash;100K</span>
+        <span class="cap">Y1 design-partnership envelope<br>(1 agency, 4 quarterly cycles)</span>
+      </div>
+      <div class="card stat-card">
+        <span class="num">$105&ndash;165K</span>
+        <span class="cap">Y2 total<br>(2 agencies + ranking hardening)</span>
+      </div>
+      <div class="card stat-card">
+        <span class="num">$200&ndash;290K</span>
+        <span class="cap">Y3 total<br>(core + 1 adjacent buyer)</span>
+      </div>
+    </div>
+
+    <div class="grid-2 mt-3">
+      <div class="card">
+        <h3 class="mt-0">What we're asking for</h3>
+        <ul class="ul-clean">
+          <li><b>One named user</b> at CDFW Marine Region (MPA Mgmt) or OPC (MPA Policy).</li>
+          <li><b>Eight quarterly cycles</b> to measure the allocation-cycle influence rate.</li>
+          <li><b>A letter of support</b> from the Decadal Review working group.</li>
+          <li><b>Feedback</b> &mdash; on the ranking, on the action verbs, on the honesty layer.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">What we're not asking for</h3>
+        <ul class="ul-clean">
+          <li>Not seeking priced equity investment.</li>
+          <li>Not asking for closure authority or data we don't already have.</li>
+          <li>Not asking for a commitment beyond the 8-quarter pilot.</li>
+          <li>Not pivoting to recreational or B2C channels.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout mt-2">
+      <span class="lbl">Why now</span>
+      <p style="margin-bottom:0">The 2023 Decadal Management Review flagged <b>climate-adaptive monitoring prioritization</b> as an unmet need. The next review window is around 2028. An 8-quarter pilot starting this quarter lands evidence on the working group's desk before the next cycle closes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. GLOSSARY -->
+<section id="glossary" class="slide">
+  <div class="slide-inner">
+    <div class="section-head">
+      <span class="number">&sect; 11 &middot; GLOSSARY</span>
+      <h2>Terms used in this pitch &mdash; searchable.</h2>
+      <p class="muted">Hover any underlined term above for the short definition; use the search box below for the full list.</p>
+    </div>
+
+    <input id="glossarySearch" class="glossary-search" type="text" placeholder="Search: MPA, OPC, BEUTI, R-squared, True North, Simpson, source-grounded...">
+
+    <div class="glossary-grid" id="glossaryGrid">
+      <div class="glossary-item"><b>MPA &mdash; Marine Protected Area.</b> A designated area of the ocean with specific rules limiting extraction and protecting habitat. California has 124 MPAs under the MLPA network.</div>
+      <div class="glossary-item"><b>MLPA &mdash; Marine Life Protection Act.</b> California 1999 law that established the state's MPA network; monitored jointly by CDFW, OPC, PISCO, Reef Check, and MARINe.</div>
+      <div class="glossary-item"><b>CDFW &mdash; California Department of Fish &amp; Wildlife.</b> State agency that operates the MPA network. Our primary buyer channel is CDFW Marine Region's MPA Management Program.</div>
+      <div class="glossary-item"><b>OPC &mdash; California Ocean Protection Council.</b> State policy body that sets MPA policy and co-owns the Decadal Review with CDFW. Our parallel buyer channel.</div>
+      <div class="glossary-item"><b>CCC &mdash; California Coastal Commission.</b> Agency with jurisdiction over California's coastal zone; an adjacent buyer.</div>
+      <div class="glossary-item"><b>WCRO &mdash; NOAA West Coast Regional Office.</b> Federal sub-region within NMFS; an adjacent public-sector buyer.</div>
+      <div class="glossary-item"><b>NMS &mdash; National Marine Sanctuary.</b> Federal sanctuary system (e.g. Channel Islands NMS). Potential adjacent buyer.</div>
+      <div class="glossary-item"><b>CDPH &mdash; California Department of Public Health.</b> Owns shellfish-safety closures. We do <em>not</em> sell to CDPH.</div>
+      <div class="glossary-item"><b>CalCOFI &mdash; California Cooperative Oceanic Fisheries Investigations.</b> Joint CA/NOAA/Scripps program running quarterly cruises since 1949. Our core bottle-database source (through May 2021).</div>
+      <div class="glossary-item"><b>SCB &mdash; Southern California Bight.</b> The curved coastal region from Point Conception to the US-Mexico border. We operate on the 13 CalCOFI zones inside the SCB.</div>
+      <div class="glossary-item"><b>Zone &mdash; CalCOFI grid cell.</b> We use the "line &times; station" grid naming (e.g. <code>Z_83.3_offshore</code>). 13 zones are inside our SCB frame.</div>
+      <div class="glossary-item"><b>OISST &mdash; Optimum Interpolation Sea Surface Temperature.</b> NOAA daily 0.25&deg; satellite SST product; our warming-signal source between CalCOFI cruises.</div>
+      <div class="glossary-item"><b>BEUTI &mdash; Biologically Effective Upwelling Transport Index.</b> Daily upwelling index (Jacox et al.); our ocean-dynamics proxy for nutrient pulses.</div>
+      <div class="glossary-item"><b>HABMAP &mdash; HAB Monitoring &amp; Alert Program.</b> SCCOOS-partnered weekly pier-sample network for toxic algae along CA coast.</div>
+      <div class="glossary-item"><b>HAB &mdash; Harmful Algal Bloom.</b> Rapid growth of toxin-producing algae (e.g. Pseudo-nitzschia). Economic and public-health risk.</div>
+      <div class="glossary-item"><b>DA &mdash; Domoic Acid.</b> Neurotoxin produced by Pseudo-nitzschia blooms. Causes shellfish closures and crab-fishery disruption; 2015 CA event was the benchmark.</div>
+      <div class="glossary-item"><b>Pseudo-nitzschia.</b> Diatom genus responsible for most domoic-acid events in the CA Current System.</div>
+      <div class="glossary-item"><b>MHW &mdash; Marine Heatwave.</b> Prolonged period of anomalously warm sea temperature. The 2014&ndash;16 North Pacific "Blob" MHW is our benchmark climate-stress event.</div>
+      <div class="glossary-item"><b>The Blob.</b> Informal name for the 2014&ndash;16 North Pacific MHW. Triggered the 2015 DA bloom and CDFW Blob Response (~$2M spend).</div>
+      <div class="glossary-item"><b>SCCOOS &mdash; Southern California Coastal Ocean Observing System.</b> IOOS Regional Association; operates many of the feeds we ingest.</div>
+      <div class="glossary-item"><b>CeNCOOS &mdash; Central and Northern California Ocean Observing System.</b> Sister IOOS RA to SCCOOS, covering the CA coast north of Point Conception.</div>
+      <div class="glossary-item"><b>IOOS &mdash; Integrated Ocean Observing System.</b> NOAA-led federated system of 11 Regional Associations. Sub-award ceiling ~$40K/yr regionally, ~$440&ndash;660K nationally.</div>
+      <div class="glossary-item"><b>C-HARM.</b> California Harmful Algae Risk Mapping &mdash; NOAA/NCCOS forecast for Pseudo-nitzschia / domoic acid. Adjacent tool, not competitor.</div>
+      <div class="glossary-item"><b>CCIEA &mdash; California Current Integrated Ecosystem Assessment.</b> NOAA's annual ecosystem-status report for the CA Current System. Annual cadence; we work at quarterly cadence.</div>
+      <div class="glossary-item"><b>CCS &mdash; California Current System.</b> The eastern-boundary current system off the US West Coast; the geographic context of CCIEA.</div>
+      <div class="glossary-item"><b>PISCO / MARINe / Reef Check.</b> Long-running MPA biological monitoring networks operating at the site level. We operate at the zone level.</div>
+      <div class="glossary-item"><b>NCCOS &mdash; NOAA National Centers for Coastal Ocean Science.</b> Parent unit for C-HARM.</div>
+      <div class="glossary-item"><b>Decadal Review.</b> The joint OPC+CDFW 10-year review of California's MPA network. 2023 cycle flagged climate-adaptive monitoring prioritization as an unmet need &mdash; our market signal. Next cycle ~2028.</div>
+      <div class="glossary-item"><b>SCSR &mdash; Scientific &amp; Statistical Review.</b> Sub-component of Decadal Review focused on monitoring methodology.</div>
+      <div class="glossary-item"><b>True North metric.</b> The single measure we optimize for: <em>allocation-cycle influence rate</em> &mdash; the fraction of quarters where BightWatch's top-ranked zones got above-mean monitoring effort the next quarter. Target &ge; 3/8; floor &ge; 1/8.</div>
+      <div class="glossary-item"><b>Allocation cycle.</b> A single quarterly monitoring-planning cycle run by the MPA Management Program. 8 per 2-year pilot.</div>
+      <div class="glossary-item"><b>Monitoring Priority / Risk Score.</b> The product-facing name for our per-zone risk ranking metric. Internally in the CSV it is <code>zone_risk_score</code> (we kept the filename stable to not break the chart pack).</div>
+      <div class="glossary-item"><b>Confidence badge.</b> A&ndash;F grade assigned to each hypothesis / capability based on how well the analysis meets our rigor gates. Generated from <code>outputs/thread_b/confidence_badges.csv</code>, not hand-assigned.</div>
+      <div class="glossary-item"><b>R<sup>2</sup> (coefficient of determination).</b> Standard regression fit statistic. R<sup>2</sup> &gt; 0 means the model beats the mean; R<sup>2</sup> &lt; 0 means it's worse than predicting the mean. Our holdout is R<sup>2</sup> = &minus;0.68, which we disclose.</div>
+      <div class="glossary-item"><b>Holdout / train split.</b> Train &le; 2013; holdout 2014&ndash;2021. Holdout is the honesty test &mdash; it sees data the model did not train on.</div>
+      <div class="glossary-item"><b>Robust-linear model.</b> A linear regression fitted with an M-estimator (Huber loss) rather than OLS, so outliers do not dominate the fit. Our B5 baseline.</div>
+      <div class="glossary-item"><b>Simpson's paradox.</b> A statistical effect where a pattern at the aggregate level reverses inside subgroups. We run a segment-first check (our "A5 gate") before publishing any aggregate finding.</div>
+      <div class="glossary-item"><b>A5 gate.</b> Our internal Simpson's-paradox check &mdash; every all-zone conclusion must be reproduced at the per-zone level, or the conclusion is marked unresolved.</div>
+      <div class="glossary-item"><b>Source-grounded LLM.</b> An LLM used strictly as a templater over structured CSV output. Every rendered number must match a CSV cell; if not, the sentence falls back to a neutral template. We use Gemini this way.</div>
+      <div class="glossary-item"><b>Free-form LLM (cut).</b> A generative LLM that produces text without requiring every number to trace to a source. We do not ship this.</div>
+      <div class="glossary-item"><b>Zone action mapping.</b> The rule that maps a zone's risk score and context to one of three named actions: <code>investigate_now</code>, <code>schedule_next_cruise</code>, <code>hold</code>.</div>
+      <div class="glossary-item"><b>Design partnership.</b> A paid 1-agency Y1 engagement where the user co-designs the product with us and commits to eight quarterly evaluation cycles. Not a pilot-for-free; not priced equity.</div>
+      <div class="glossary-item"><b>Sub-award (IOOS).</b> A federal pass-through grant from IOOS to a Regional Association (e.g. SCCOOS). Ceiling per RA is ~$40K/yr &mdash; which is why SCCOOS is a partner, not a primary buyer.</div>
+      <div class="glossary-item"><b>TAM &mdash; Total Addressable Market.</b> Upper bound of revenue in a defined market. Ours: $400&ndash;700K/yr across CDFW + OPC + CCC + WCRO + NMS.</div>
+      <div class="glossary-item"><b>Budget envelope.</b> The plausible spend range a public-sector buyer could authorize without a special procurement process. Our Y1 envelope is $30&ndash;100K.</div>
+      <div class="glossary-item"><b>ERDDAP.</b> A data-server standard used across IOOS for programmatic access to oceanographic datasets.</div>
+      <div class="glossary-item"><b>Bottle database (CalCOFI).</b> The discrete-sample water chemistry and zooplankton table from CalCOFI cruises &mdash; the core of our feature store. Cutoff: May 2021.</div>
+      <div class="glossary-item"><b>Fishing pressure proxy (0&ndash;100).</b> Our zone-level index combining published CDFW commercial-landings zones. <code>Z_86.7_inshore</code> (Santa Monica Bay) is 100.</div>
+      <div class="glossary-item"><b>Priority queue.</b> The ranked list of all 13 zones with per-zone risk score, action, and confidence badge &mdash; produced from <code>zone_action_queue.csv</code>.</div>
+      <div class="glossary-item"><b>Leave-behind PDF.</b> The 1-page printable version of this HTML, produced via browser print-to-PDF. Print CSS hides the glossary search box and the Mermaid zoom controls.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>BightWatch &mdash; DataHacks 2026 &middot; Product &amp; Entrepreneurship Track</div>
+  <div class="small">Numbers in this deck trace back to <code>outputs/thread_b/</code>.</div>
+</footer>
+
+<script>
+  // Mermaid zoom
+  (function () {
+    var zoom = 1.3;
+    window.zoomMermaid = function (delta) {
+      if (delta === 0) { zoom = 1.3; }
+      else { zoom = Math.max(0.8, Math.min(2.5, zoom + delta)); }
+      var el = document.getElementById("mermaidZoom");
+      if (el) el.style.transform = "scale(" + zoom.toFixed(2) + ")";
+    };
+  })();
+
+  // Glossary search
+  (function () {
+    var input = document.getElementById("glossarySearch");
+    var grid = document.getElementById("glossaryGrid");
+    if (!input || !grid) return;
+    input.addEventListener("input", function () {
+      var q = input.value.trim().toLowerCase();
+      var items = grid.querySelectorAll(".glossary-item");
+      items.forEach(function (it) {
+        var text = it.textContent.toLowerCase();
+        it.style.display = (q === "" || text.indexOf(q) !== -1) ? "" : "none";
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
