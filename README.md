@@ -1,71 +1,28 @@
-# 🌐 Personal Website & Portfolio
+# 🌐 Personal Website and Portfolio
 
-This repository contains my personal website and portfolio, developed as part of DSC 106 (Data Visualization) labs.
+This repository contains my personal website and portfolio for DSC 106 at UC San Diego.
 
-The site is built using HTML, CSS, and basic web technologies, and is deployed using GitHub Pages.
+The site is built with HTML, CSS, and JavaScript, and is deployed with GitHub Pages.
 
----
+## 🔗 Live Site
 
-## 🔗 Live Website
+https://bigmacchung.github.io/portfolio/
 
-👉 https://bigmacchung.github.io/portfolio/
+## 📚 About
 
----
-
-## 📚 About This WIP Project
-
-This project was developed progressively through a series of labs, covering:
-
-* Web fundamentals and how the internet works
-* Building a webpage using HTML
-* Styling with CSS
-* Structuring multi-page websites
-* Deploying a live website using GitHub Pages
-
-These labs focus on understanding how to create and publish a fully functional personal website from scratch 
-
----
+This is a work in progress portfolio site built through DSC 106 labs. It includes a homepage, project pages, contact page, CV section, and shared styling and scripts.
 
 ## 🧱 Structure
 
 ```bash
 .
-├── index.html          # Homepage
-├── style.css           # Styling
-├── /images             # Images and assets
-├── /projects           # Projects page
-├── /contact            # Contact page
-├── /resume             # Resume/CV page
-```
-
----
-
-## ✨ Features
-
-* Responsive personal website
-* Navigation across multiple pages
-* Contact form (basic HTML form)
-* Resume / CV section
-* Hosted on GitHub Pages
-
----
-
-## 🚀 Deployment
-
-This site is deployed using GitHub Pages:
-
-1. Go to repository settings
-2. Enable GitHub Pages from the `main` branch
-3. Access via the provided public URL
-
----
-
-## 📌 Notes
-
-This repository is continuously updated as I progress through additional labs and improve the website design and functionality.
-
----
-
-## 🤝 Acknowledgements
-
-Developed as part of DSC 106: Data Visualization at UC San Diego
+├── contact/
+├── cv/
+├── images/
+├── projects/
+├── .DS_Store
+├── .gitattributes
+├── README.md
+├── global.js
+├── index.html
+└── style.css
