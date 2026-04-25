@@ -146,10 +146,28 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     const image = project.image ?? 'https://vis-society.github.io/labs/2/images/empty.svg';
     const description = project.description ?? '';
     const year = project.year ?? '';
+    const link = project.link ?? '';
+
+    // If the project has a link, resolve it against BASE_PATH when it's relative
+    // (so it works both on localhost and under /portfolio/ on GitHub Pages),
+    // and wrap the heading + image in an <a>.
+    const resolvedLink = link
+      ? link.startsWith('http')
+        ? link
+        : BASE_PATH + link
+      : '';
+
+    const headingHTML = resolvedLink
+      ? `<${heading}><a href="${resolvedLink}" target="_blank" rel="noopener noreferrer">${title}</a></${heading}>`
+      : `<${heading}>${title}</${heading}>`;
+
+    const imageHTML = resolvedLink
+      ? `<a href="${resolvedLink}" target="_blank" rel="noopener noreferrer"><img src="${image}" alt="${title}"></a>`
+      : `<img src="${image}" alt="${title}">`;
 
     article.innerHTML = `
-      <${heading}>${title}</${heading}>
-      <img src="${image}" alt="${title}">
+      ${headingHTML}
+      ${imageHTML}
       <div class="project-text">
         <p>${description}</p>
         ${year ? `<p class="project-year">c. ${year}</p>` : ''}
