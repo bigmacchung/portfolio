@@ -143,19 +143,21 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
     // Pull each field with a fallback so missing data doesn't render "undefined".
     const title = project.title ?? 'Untitled project';
-    const image = project.image ?? 'https://vis-society.github.io/labs/2/images/empty.svg';
+    const rawImage = project.image ?? 'https://vis-society.github.io/labs/2/images/empty.svg';
     const description = project.description ?? '';
     const year = project.year ?? '';
     const link = project.link ?? '';
 
-    // If the project has a link, resolve it against BASE_PATH when it's relative
-    // (so it works both on localhost and under /portfolio/ on GitHub Pages),
-    // and wrap the heading + image in an <a>.
-    const resolvedLink = link
-      ? link.startsWith('http')
-        ? link
-        : BASE_PATH + link
-      : '';
+    // Resolve relative paths (image and link) against BASE_PATH so they work both
+    // on localhost and under /portfolio/ on GitHub Pages, regardless of which page
+    // we're rendering from.
+    const resolvePath = (path) =>
+      path && !path.startsWith('http') && !path.startsWith('/')
+        ? BASE_PATH + path
+        : path;
+
+    const image = resolvePath(rawImage);
+    const resolvedLink = link ? resolvePath(link) : '';
 
     const headingHTML = resolvedLink
       ? `<${heading}><a href="${resolvedLink}" target="_blank" rel="noopener noreferrer">${title}</a></${heading}>`
