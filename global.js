@@ -97,3 +97,71 @@ form?.addEventListener('submit', (event) => {
   let url = `${form.action}?${params.join('&')}`;
   location.href = url;
 });
+
+// ---------- Lab 4 Step 1.2: Fetching JSON data ----------
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL.
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+// ---------- Lab 4 Step 1.4: Rendering project articles ----------
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  // Defensive checks so the function is robust against bad input.
+  if (!containerElement || !(containerElement instanceof HTMLElement)) {
+    console.error('renderProjects: containerElement is not a valid DOM element.');
+    return;
+  }
+
+  // Clear out anything that's already in the container so we don't duplicate.
+  containerElement.innerHTML = '';
+
+  // Validate the heading level — fall back to h2 if someone passes garbage.
+  const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const heading = validHeadings.includes(headingLevel) ? headingLevel : 'h2';
+
+  // Handle the empty case with a friendly placeholder.
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects to display yet — check back soon!</p>';
+    return;
+  }
+
+  for (const project of projects) {
+    const article = document.createElement('article');
+
+    // Pull each field with a fallback so missing data doesn't render "undefined".
+    const title = project.title ?? 'Untitled project';
+    const image = project.image ?? 'https://vis-society.github.io/labs/2/images/empty.svg';
+    const description = project.description ?? '';
+    const year = project.year ?? '';
+
+    article.innerHTML = `
+      <${heading}>${title}</${heading}>
+      <img src="${image}" alt="${title}">
+      <div class="project-text">
+        <p>${description}</p>
+        ${year ? `<p class="project-year">c. ${year}</p>` : ''}
+      </div>
+    `;
+
+    containerElement.appendChild(article);
+  }
+}
+
+// ---------- Lab 4 Step 3.2: Fetching GitHub profile data ----------
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}

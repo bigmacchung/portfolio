@@ -94,6 +94,42 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+.projects article .project-year {
+  font-style: italic;
+  color: oklch(50% 3% 200);
+  font-family: Baskerville, "Baskerville Old Face", Garamond, serif;
+  font-variant-numeric: oldstyle-nums;
+  margin: 0.25em 0 0;
+}
+
+/* ---------- GitHub profile stats ---------- */
+#profile-stats {
+  margin: 1.5em 0;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25em 1em;
+  margin: 0;
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  color: oklch(50% 3% 200);
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 1.75em;
+  font-weight: 700;
+}
+
 .cv section {
   margin-bottom: 2em;
   padding-bottom: 1em;
