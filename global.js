@@ -41,8 +41,11 @@ for (let p of pages) {
   );
 
   // External links (different host) open in a new tab.
+  // rel="noopener noreferrer" prevents the new tab from accessing window.opener
+  // (security best practice for any target="_blank" link to a third-party site).
   if (a.host !== location.host) {
     a.target = '_blank';
+    a.rel = 'noopener noreferrer';
   }
 
   nav.append(a);
