@@ -7,18 +7,18 @@
     "link": "projects/part_c_teaching_video_modified_v8.html"
   },
   {
-    "title": "BightWatch Pitch",
-    "year": "2025",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Pitch deck for BightWatch, a product concept I developed for a course project.",
-    "link": "projects/BightWatch_Pitch.html"
-  },
-  {
     "title": "Sugar Hides in Ultra-Processed Sweets",
     "year": "2026",
     "image": "images/sugar_processing_viz.jpg",
     "description": "DSC106 Project 1: an expository data visualization built from GroceryDB (Nature Food, 2023) showing how sugar concentrates in ultra-processed sweets like candy and pastries, while many ultra-processed savory items stay low-sugar. Includes a sugar-distribution panel and FPro processing-score breakdown across 26,221 products.",
     "link": "projects/Sugar_Processing_Project1.pdf"
+  },
+  {
+    "title": "BightWatch Pitch",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Pitch deck for BightWatch, a product concept I developed for a course project.",
+    "link": "projects/BightWatch_Pitch.html"
   },
   {
     "title": "DSC80 Term Project: Power Outage Analysis",
