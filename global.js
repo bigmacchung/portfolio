@@ -12,26 +12,31 @@ const BASE_PATH =
     ? '/' // Local server
     : '/portfolio/'; // GitHub Pages repo name
 
-let pages = [
+// Primary navigation: the main pages on this site.
+const primaryPages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
   { url: 'contact/', title: 'Contact' },
-  { url: 'cv/', title: 'CV' },
-  { url: 'https://github.com/bigmacchung', title: 'GitHub' },
 ];
 
-let nav = document.createElement('nav');
+// Secondary "other links": personal documents and external profiles.
+const otherLinks = [
+  { url: 'cv/', title: 'CV' },
+  { url: 'https://github.com/bigmacchung', title: 'GitHub' },
+  { url: 'https://www.linkedin.com/in/maximechung', title: 'LinkedIn' },
+];
+
+const nav = document.createElement('nav');
 document.body.prepend(nav);
 
-for (let p of pages) {
-  let url = p.url;
-  let title = p.title;
+// Helper that turns a {url, title} entry into a fully wired-up <a>.
+function makeNavLink({ url, title }) {
+  // Prefix relative (internal) URLs with BASE_PATH so they work both locally
+  // and under /portfolio/ on GitHub Pages.
+  const href = !url.startsWith('http') ? BASE_PATH + url : url;
 
-  // Prefix relative (internal) URLs with BASE_PATH.
-  url = !url.startsWith('http') ? BASE_PATH + url : url;
-
-  let a = document.createElement('a');
-  a.href = url;
+  const a = document.createElement('a');
+  a.href = href;
   a.textContent = title;
 
   // Highlight the link for the current page.
@@ -48,8 +53,30 @@ for (let p of pages) {
     a.rel = 'noopener noreferrer';
   }
 
-  nav.append(a);
+  return a;
 }
+
+// Top row — primary tabs.
+const primaryRow = document.createElement('div');
+primaryRow.className = 'nav-primary';
+for (const page of primaryPages) {
+  primaryRow.append(makeNavLink(page));
+}
+nav.append(primaryRow);
+
+// Bottom row — "Other Links:" label + secondary tabs.
+const secondaryRow = document.createElement('div');
+secondaryRow.className = 'nav-secondary';
+
+const label = document.createElement('span');
+label.className = 'nav-secondary-label';
+label.textContent = 'Other links:';
+secondaryRow.append(label);
+
+for (const link of otherLinks) {
+  secondaryRow.append(makeNavLink(link));
+}
+nav.append(secondaryRow);
 
 // ---------- Step 4: Dark-mode switch ----------
 

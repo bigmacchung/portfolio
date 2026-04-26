@@ -19,16 +19,47 @@ nav {
   --border-color: oklch(50% 10% 200 / 40%);
 
   display: flex;
-  margin-bottom: 1em;
+  flex-direction: column;
+  margin-bottom: 1.5em;
   border-bottom: 1px solid var(--border-color);
 }
 
+/* Top row: primary tabs (Home, Projects, Contact). */
+.nav-primary {
+  display: flex;
+}
+
+/* Bottom row: "Other links:" label + secondary tabs (CV, GitHub, LinkedIn). */
+.nav-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4em 0.5em;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9em;
+  flex-wrap: wrap;
+}
+
+.nav-secondary-label {
+  color: oklch(50% 3% 200);
+  font-style: italic;
+  margin-right: 0.25em;
+}
+
 nav a {
-  flex: 1;
   text-decoration: none;
   color: inherit;
-  text-align: center;
   padding: 0.5em;
+}
+
+.nav-primary a {
+  flex: 1;
+  text-align: center;
+}
+
+.nav-secondary a {
+  padding: 0.25em 0.6em;
+  border-radius: 4px;
 }
 
 nav a.current {
@@ -36,12 +67,17 @@ nav a.current {
   padding-bottom: 0.1em;
 }
 
-nav a:hover {
+.nav-primary a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
   /* Mix the accent color with the current background so the hover color
      stays legible in both light and dark mode. */
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+.nav-secondary a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  color: var(--color-accent);
 }
 
 input, textarea, select, button {
@@ -196,6 +232,123 @@ h1, h2, h3, h4, h5, h6 {
 .social-button.linkedin:focus-visible {
   background-color: #084d92;
   color: white;
+}
+
+/* ---------- Hero (homepage) ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2em;
+  align-items: center;
+  margin: 1em 0 3em;
+}
+
+.hero-photo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 4px 20px oklch(50% 5% 200 / 25%);
+}
+
+.hero-text h1 {
+  font-size: 320%;
+  margin: 0 0 0.25em;
+}
+
+.hero-text p {
+  margin: 0.5em 0;
+}
+
+/* On narrow screens, stack the photo above the text. */
+@media (max-width: 600px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.25em;
+  }
+  .hero-photo {
+    margin-inline: auto;
+    max-width: 160px;
+  }
+}
+
+/* ---------- Generic homepage section ---------- */
+.home-section {
+  margin-bottom: 3.5em;
+}
+
+.section-heading {
+  font-size: 200%;
+  margin: 0 0 0.25em;
+}
+
+.section-subhead {
+  margin: 0 0 1em;
+  color: oklch(50% 3% 200);
+  font-size: 0.95em;
+}
+
+/* Make a heading itself a link without losing its visual weight. */
+.section-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3em;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.section-link:hover,
+.section-link:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.section-link-arrow {
+  font-size: 0.8em;
+  transition: transform 0.15s ease;
+}
+
+.section-link:hover .section-link-arrow,
+.section-link:focus-visible .section-link-arrow {
+  transform: translateX(0.25em);
+}
+
+/* ---------- Awards & Distinctions ---------- */
+.awards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.25em;
+}
+
+.awards-list li {
+  padding: 1em 1.2em;
+  border: 1px solid oklch(50% 10% 200 / 30%);
+  border-radius: 8px;
+  background-color: color-mix(in oklch, canvas 92%, var(--color-accent) 8%);
+}
+
+.awards-list li strong {
+  font-size: 1.05em;
+}
+
+.award-meta {
+  display: block;
+  color: oklch(50% 3% 200);
+  font-size: 0.85em;
+  margin-top: 0.15em;
+  margin-bottom: 0.5em;
+}
+
+.awards-list li p {
+  margin: 0;
+  font-size: 0.95em;
 }
 
 /* ---------- Dark-mode switcher ---------- */

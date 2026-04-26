@@ -9,29 +9,70 @@
     <script type="module" src="index.js" defer></script>
 </head>
 <body>
-    <h1>Maxime Chung</h1>
-    <p>Hi! I'm a student at UCSD studying data science. </p>
-    <p>
-      <a class="social-button linkedin"
-         href="https://www.linkedin.com/in/maximechung"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Connect with Maxime Chung on LinkedIn">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-        <span>Connect on LinkedIn</span>
-      </a>
-    </p>
-    <img src="images/Young woman in courtyard setting.png" alt="Photo of Maxime Chung">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="about">
+      <img class="hero-photo" src="images/Young woman in courtyard setting.png" alt="Photo of Maxime Chung">
+      <div class="hero-text">
+        <h1>Maxime Chung</h1>
+        <p>Hi! I'm a student at UCSD studying data science.</p>
+        <p>
+          <a class="social-button linkedin"
+             href="https://www.linkedin.com/in/maximechung"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Connect with Maxime Chung on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span>Connect on LinkedIn</span>
+          </a>
+        </p>
+      </div>
+    </section>
 
-    <div id="profile-stats">
-      <!-- GitHub stats are inserted dynamically by index.js -->
-    </div>
+    <!-- ===== Latest Projects ===== -->
+    <section class="home-section" id="latest-projects">
+      <h2 class="section-heading">
+        <a href="projects/" class="section-link">
+          Latest Projects <span class="section-link-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </h2>
+      <p class="section-subhead">A few of my recent projects. Click the heading above for the full archive.</p>
+      <div class="projects">
+        <!-- The latest 3 projects are inserted dynamically by index.js -->
+      </div>
+    </section>
 
-    <h2>Latest Projects</h2>
-    <div class="projects">
-      <!-- The latest 3 projects are inserted dynamically by index.js -->
-    </div>
+    <!-- ===== Awards & Distinctions ===== -->
+    <section class="home-section" id="awards">
+      <h2 class="section-heading">Awards &amp; Distinctions</h2>
+      <p class="section-subhead">A running list of honors and recognitions.</p>
+      <ul class="awards-list">
+        <li>
+          <strong>Provost's Honors</strong>
+          <span class="award-meta">UC San Diego &middot; multiple quarters</span>
+          <p>Awarded for academic excellence in the Data Science major.</p>
+        </li>
+        <li>
+          <strong>DSC 106 Outstanding Project</strong>
+          <span class="award-meta">2026</span>
+          <p>Recognized for an expository data visualization on ultra-processed foods using GroceryDB (Nature Food, 2023).</p>
+        </li>
+        <li>
+          <strong>[Add your next award here]</strong>
+          <span class="award-meta">Year</span>
+          <p>Replace these placeholder entries by editing <code>index.html</code> with your real awards.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== GitHub Stats (bottom) ===== -->
+    <section class="home-section" id="github-stats">
+      <h2 class="section-heading">GitHub Activity</h2>
+      <p class="section-subhead">Live stats from my GitHub profile.</p>
+      <div id="profile-stats">
+        <!-- GitHub stats are inserted dynamically by index.js -->
+      </div>
+    </section>
 </body>
 </html>
