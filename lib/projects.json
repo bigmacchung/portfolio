@@ -21,30 +21,6 @@
     "link": "projects/Sugar_Processing_Project1.pdf"
   },
   {
-    "title": "Personal Portfolio Website",
-    "year": "2026",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A personal portfolio site built from scratch with HTML, CSS, and JavaScript as part of DSC106. Features a dynamic dark mode switch, automatic navigation, and JSON-driven project listings."
-  },
-  {
-    "title": "DSC106 Lab 1: Web Fundamentals",
-    "year": "2026",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Introduction to the web platform — built a multi-page personal site using semantic HTML, published to GitHub Pages, and added a contact form, photo, and CV."
-  },
-  {
-    "title": "DSC106 Lab 2: Styling with CSS",
-    "year": "2026",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Styled the portfolio site using CSS custom properties, Flexbox, and CSS Grid (including subgrid). Added a responsive projects gallery and a typographically aligned contact form."
-  },
-  {
-    "title": "DSC106 Lab 3: Introduction to JS",
-    "year": "2026",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Used JavaScript to automate the navigation bar, highlight the current page, build a three-state dark-mode switcher with localStorage persistence, and improve the contact form."
-  },
-  {
     "title": "DSC80 Term Project: Power Outage Analysis",
     "year": "2025",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
@@ -57,16 +33,22 @@
     "description": "Built a distributed data pipeline using Dask and PySpark on AWS to clean, transform, and aggregate millions of e-commerce records, with attention to memory profiling and runtime optimization."
   },
   {
-    "title": "DSC140A Probabilistic Modeling Notes",
-    "year": "2024",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A collection of notes and worked examples for probabilistic modeling and machine learning, covering MLE, Bayesian inference, and graphical models."
-  },
-  {
     "title": "Cashflow ML Competition",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "DSC190 ML Club competition entry: forecasted cashflow patterns from a noisy time-series dataset using gradient-boosted models and engineered temporal features."
+  },
+  {
+    "title": "Personal Portfolio Website",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A personal portfolio site built from scratch with HTML, CSS, and JavaScript as part of DSC106. Features a dynamic dark mode switch, automatic navigation, and JSON-driven project listings."
+  },
+  {
+    "title": "DSC140A Probabilistic Modeling Notes",
+    "year": "2024",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A collection of notes and worked examples for probabilistic modeling and machine learning, covering MLE, Bayesian inference, and graphical models."
   },
   {
     "title": "SafePath Networking Initiative",
@@ -87,9 +69,9 @@
     "description": "An interactive D3.js visualization exploring how transit access correlates with neighborhood income in a major US metro, with linked brushing across map and bar chart."
   },
   {
-    "title": "DSC106 Lab 4: JavaScript II",
+    "title": "DSC106 Lab Series",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Refactored the portfolio to load all project data from a JSON file, render projects dynamically with a reusable function, and pull live GitHub profile stats from the public API."
+    "description": "A four-lab progression building this portfolio site from scratch: semantic HTML and GitHub Pages, CSS Grid and Flexbox styling, JavaScript modules with automatic navigation and dark mode, and JSON-driven dynamic project rendering with a live GitHub API integration."
   }
 ]
