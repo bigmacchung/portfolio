@@ -234,6 +234,59 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
+.social-button.accent {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.social-button.accent:hover,
+.social-button.accent:focus-visible {
+  background-color: oklch(from var(--color-accent) calc(l - 0.05) c h);
+  color: white;
+}
+
+/* ---------- Featured project block (e.g. A/B Testing Tutor) ---------- */
+.featured-project {
+  padding: 1.25em 1.4em;
+  border: 1px solid oklch(60% 5% 200 / 30%);
+  border-radius: 10px;
+  background-color: color-mix(in oklch, canvas 94%, var(--color-accent) 6%);
+}
+
+.featured-project p {
+  margin: 0 0 0.8em;
+}
+
+.featured-project p:last-child {
+  margin-bottom: 0;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+  align-items: center;
+  margin-top: 1em !important;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 0.25em 0.7em;
+  border-radius: 999px;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: oklch(85% 8% 90 / 50%);
+  color: oklch(40% 8% 90);
+}
+
+.footnote {
+  font-size: 0.85em;
+  color: oklch(50% 3% 200);
+  font-style: italic;
+}
+
 /* ---------- Hero (homepage) ---------- */
 .hero {
   display: grid;
@@ -273,6 +326,55 @@ h1, h2, h3, h4, h5, h6 {
     margin-inline: auto;
     max-width: 160px;
   }
+}
+
+/* ---------- Anchor pills (Rampure-style "On this page:" / "Other links:") ---------- */
+.page-anchors {
+  margin: 0 0 2.5em;
+  border: none;
+  display: block;
+}
+
+.page-anchors p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em 0.6em;
+  margin: 0.4em 0;
+}
+
+.page-anchors-label {
+  color: oklch(50% 3% 200);
+  font-size: 0.95em;
+  margin-right: 0.25em;
+}
+
+.anchor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.3em 0.75em;
+  border: 1px solid oklch(60% 5% 200 / 35%);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--color-accent);
+  font-size: 0.95em;
+  background-color: color-mix(in oklch, canvas 96%, var(--color-accent) 4%);
+  transition: background-color 0.15s ease,
+              border-color 0.15s ease,
+              transform 0.15s ease;
+}
+
+.anchor-pill:hover,
+.anchor-pill:focus-visible {
+  background-color: color-mix(in oklch, canvas 88%, var(--color-accent) 12%);
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.anchor-pill .pill-icon {
+  font-size: 1em;
+  line-height: 1;
 }
 
 /* ---------- Generic homepage section ---------- */
