@@ -12,11 +12,11 @@ const BASE_PATH =
     ? '/' // Local server
     : '/portfolio/'; // GitHub Pages repo name
 
-// Primary navigation: the main pages on this site.
+// Primary navigation: simplified to just Home — the rest of the site is reachable
+// from the homepage's "On this page" / "Other links" / "Learning resources" pills
+// and from the in-section links (e.g. clickable "Latest Projects" heading).
 const primaryPages = [
   { url: '', title: 'Home' },
-  { url: 'projects/', title: 'Projects' },
-  { url: 'contact/', title: 'Contact' },
 ];
 
 // Secondary "other links": personal documents and external profiles.
@@ -214,4 +214,22 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+// ---------- Site traffic: home-page view counter ----------
+// counterapi.dev is a free, no-auth public counter service. Each call increments
+// the counter and returns the new total. Failures are logged but never break the
+// page — we just show a dash for the count.
+export async function fetchHomeViews() {
+  try {
+    const response = await fetch(
+      'https://api.counterapi.dev/v1/bigmacchung-portfolio/home-views/up',
+    );
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data.count ?? null;
+  } catch (error) {
+    console.error('Could not update view counter:', error);
+    return null;
+  }
 }

@@ -3,7 +3,10 @@ html {
      based on the user's OS preference (or what we set via JS). */
   color-scheme: light dark;
 
-  --color-accent: oklch(65% 50% 0);
+  /* Colorblind-friendly teal-blue accent (was red).
+     Distinguishable for protanopia, deuteranopia, and tritanopia, and contrasts
+     well in both light and dark mode. */
+  --color-accent: oklch(55% 30% 230);
   accent-color: var(--color-accent);
 }
 
@@ -347,6 +350,19 @@ h1, h2, h3, h4, h5, h6 {
   color: oklch(50% 3% 200);
   font-size: 0.95em;
   margin-right: 0.25em;
+  /* Reserve a fixed minimum width so the first pill of every row starts at
+     the same X position across "On this page", "Other links", "Learning resources". */
+  min-width: 11em;
+  flex-shrink: 0;
+}
+
+/* Stack labels above pills on narrow screens so labels still align with each other
+   visually but don't squeeze the pill row. */
+@media (max-width: 600px) {
+  .page-anchors-label {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 .anchor-pill {
@@ -418,6 +434,48 @@ h1, h2, h3, h4, h5, h6 {
 .section-link:hover .section-link-arrow,
 .section-link:focus-visible .section-link-arrow {
   transform: translateX(0.25em);
+}
+
+/* ---------- Course Schedule ---------- */
+.quarter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em;
+  display: grid;
+  gap: 0.5em;
+}
+
+.quarter-list li {
+  padding: 0.85em 1.1em;
+  border: 1px solid oklch(60% 5% 200 / 30%);
+  border-radius: 8px;
+  background-color: color-mix(in oklch, canvas 96%, var(--color-accent) 4%);
+}
+
+.quarter-list li.quarter-current {
+  border-color: var(--color-accent);
+  background-color: color-mix(in oklch, canvas 90%, var(--color-accent) 10%);
+}
+
+.quarter-link {
+  display: inline-block;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.quarter-link:hover,
+.quarter-link:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.quarter-note {
+  margin: 0.3em 0 0;
+  font-size: 0.88em;
+  color: oklch(50% 3% 200);
 }
 
 /* ---------- Awards & Distinctions ---------- */
