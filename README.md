@@ -1,6 +1,6 @@
 # 🌐 Personal Website and Portfolio
 
-This repository contains my personal website and portfolio for DSC 106 at UC San Diego.
+This repository contains my personal website and portfolio for DSC 106 Spr' 26 at UC San Diego.
 
 The site is built with HTML, CSS, and JavaScript, and is deployed with GitHub Pages.
 
