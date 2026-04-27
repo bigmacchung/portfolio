@@ -309,6 +309,22 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 20px oklch(50% 5% 200 / 25%);
 }
 
+.hero-location {
+  margin: 0 0 0.4em !important;
+  font-size: 0.95em;
+  color: oklch(45% 3% 200);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.hero-location .location-pin {
+  /* Render the 📍 emoji glyph itself rather than a coloured fallback,
+     and nudge it slightly so it sits visually centered with the text. */
+  font-size: 1.05em;
+  line-height: 1;
+}
+
 .hero-text h1 {
   font-size: 320%;
   margin: 0 0 0.25em;
