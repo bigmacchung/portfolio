@@ -15,3 +15,11 @@ if (projectsTitle) {
   const count = Array.isArray(projects) ? projects.length : 0;
   projectsTitle.textContent = `Projects (${count})`;
 }
+
+{
+  "title": "Landing Page A/B Testing Lab",
+  "description": "An experimental sandbox for testing landing page layouts, UI variants, and user interaction designs. Used for iterative A/B testing and portfolio UX experiments.",
+  "link": "#",
+  "tags": ["A/B testing", "UX", "experiment", "landing-page"],
+  "status": "experimental"
+}
