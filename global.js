@@ -64,20 +64,6 @@ for (const page of primaryPages) {
 }
 nav.append(primaryRow);
 
-// Bottom row — "Other Links:" label + secondary tabs.
-const secondaryRow = document.createElement('div');
-secondaryRow.className = 'nav-secondary';
-
-const label = document.createElement('span');
-label.className = 'nav-secondary-label';
-label.textContent = 'Other links:';
-secondaryRow.append(label);
-
-for (const link of otherLinks) {
-  secondaryRow.append(makeNavLink(link));
-}
-nav.append(secondaryRow);
-
 // ---------- Step 4: Dark-mode switch ----------
 
 document.body.insertAdjacentHTML(
