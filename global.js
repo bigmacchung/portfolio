@@ -17,6 +17,7 @@ const BASE_PATH =
 // and from the in-section links (e.g. clickable "Latest Projects" heading).
 const primaryPages = [
   { url: '', title: 'Home' },
+  { url: 'meta/', title: 'Meta' },
 ];
 
 // Secondary "other links": personal documents and external profiles.
