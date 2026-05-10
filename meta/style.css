@@ -1,24 +1,11 @@
 /* ---------- Lab 6 meta page styles ---------- */
+/* Base typography, body, h1/h2, and nav come from ../style.css.        */
+/* This file only adds the chart-specific styling.                       */
 
+/* The meta page can use a wider max-width than the rest of the site so */
+/* the scatterplot has room to breathe.                                  */
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
-  max-width: min(120ch, 90vw);
-  margin: 2em auto;
-  padding: 0 1em;
-  line-height: 1.5;
-  color: canvastext;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 0.25em;
-}
-
-h2 {
-  margin-top: 2em;
-  border-bottom: 1px solid color-mix(in oklch, canvastext 15%, transparent);
-  padding-bottom: 0.25em;
+  max-width: min(110ch, 92vw);
 }
 
 /* ---------- Stats <dl> grid ---------- */
