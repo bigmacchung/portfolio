@@ -11,17 +11,34 @@
 </head>
 <body>
   <h1>Meta</h1>
-  <p>This page reports a few statistics about the code that powers this site &mdash; how many lines, how many commits, when the work happens, and how it&rsquo;s spread across files.</p>
+  <p>This page reports a few statistics about the code that powers this site &mdash; how many lines, how many commits, when the work happens, and how it&rsquo;s spread across files. Scroll down to walk through the project&rsquo;s history commit-by-commit, or drag the slider to jump around in time.</p>
 
   <h2>Summary</h2>
   <div id="stats"></div>
 
+  <!-- Step 1.1: time filter slider -->
+  <label class="time-filter">
+    <span class="time-filter__label">Show commits until:</span>
+    <input id="commit-progress" type="range" min="0" max="100" value="100" />
+    <time id="commit-time"></time>
+  </label>
+
   <h2>Commits by time of day</h2>
-  <div id="chart"></div>
 
-  <p id="selection-count">No commits selected</p>
+  <!-- Step 3.1: scrollytelling wrapper -->
+  <div id="scrolly-1">
+    <div id="scatter-story"></div>
+    <div id="scatter-plot">
+      <div id="chart"></div>
+      <p id="selection-count">No commits selected</p>
+      <dl id="language-breakdown" class="stats"></dl>
+    </div>
+  </div>
 
-  <dl id="language-breakdown" class="stats"></dl>
+  <!-- Step 2: file unit visualization -->
+  <h2>File sizes</h2>
+  <p class="files-blurb">Each dot is one line of code. Files are sorted by size; color = file type.</p>
+  <dl id="files"></dl>
 
   <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>
@@ -33,7 +50,7 @@
     <dd id="commit-date"></dd>
 
     <dt>Time</dt>
-    <dd id="commit-time"></dd>
+    <dd id="commit-time-tt"></dd>
 
     <dt>Author</dt>
     <dd id="commit-author"></dd>

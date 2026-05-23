@@ -1,11 +1,12 @@
-/* ---------- Lab 6 meta page styles ---------- */
+/* ---------- Lab 6 + 8 meta page styles ---------- */
 /* Base typography, body, h1/h2, and nav come from ../style.css.        */
-/* This file only adds the chart-specific styling.                       */
+/* This file adds the chart-specific styling, plus the slider, the      */
+/* file unit visualization, and the scrollytelling layout for Lab 8.    */
 
 /* The meta page can use a wider max-width than the rest of the site so */
 /* the scatterplot has room to breathe.                                  */
 body {
-  max-width: min(110ch, 92vw);
+  max-width: min(120ch, 94vw);
 }
 
 /* ---------- Stats <dl> grid ---------- */
@@ -34,10 +35,36 @@ dl.stats dd {
   font-variant-numeric: tabular-nums;
 }
 
+/* ---------- Step 1.1: Time-filter slider ---------- */
+
+.time-filter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75em;
+  margin: 1em 0 1.5em;
+  padding: 0.6em 0.9em;
+  border-radius: 0.5em;
+  background: color-mix(in oklch, canvastext 4%, transparent);
+}
+
+.time-filter__label {
+  font-weight: 500;
+}
+
+.time-filter input[type="range"] {
+  flex: 1;
+}
+
+.time-filter time {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in oklch, canvastext 75%, transparent);
+}
+
 /* ---------- Scatterplot ---------- */
 
 #chart {
-  margin: 1em 0;
+  margin: 0.5em 0 1em;
 }
 
 #chart svg {
@@ -75,9 +102,14 @@ dl.stats dd {
 /* ---------- Dots ---------- */
 
 circle {
-  transition: 200ms;
+  transition: all 200ms, r calc(var(--r, 10) * 20ms);
   transform-origin: center;
   transform-box: fill-box;
+
+  /* Step 1.4: animate new circles in from r:0 */
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -166,4 +198,120 @@ dl.info[hidden]:not(:hover, :focus-within) {
 #selection-count {
   margin-top: 1.5em;
   font-weight: 500;
+}
+
+/* ---------- Step 3.1: Scrollytelling two-column layout ---------- */
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-story .step {
+  padding-block: 1em 60vh;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: color-mix(in oklch, canvastext 80%, transparent);
+}
+
+#scatter-story .step a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, canvastext 30%, transparent);
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 1rem;
+  bottom: auto;
+  height: calc(100vh - 2rem);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Single-column fallback on narrow screens — sticky still works. */
+@media (max-width: 760px) {
+  #scrolly-1 {
+    flex-direction: column;
+  }
+
+  #scatter-plot {
+    height: 70vh;
+    order: -1; /* chart on top, story scrolls below */
+  }
+}
+
+/* ---------- Step 2: File unit visualization ---------- */
+
+.files-blurb {
+  color: color-mix(in oklch, canvastext 60%, transparent);
+  margin: 0 0 1em;
+  font-size: 0.95rem;
+}
+
+#files {
+  display: grid;
+  grid-template-columns: minmax(10ch, 1fr) 4fr;
+  gap: 0.5em 1em;
+  margin: 1em 0 3em;
+}
+
+#files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  padding-block: 0.25em;
+  border-top: 1px solid color-mix(in oklch, canvastext 10%, transparent);
+}
+
+#files dt {
+  grid-column: 1;
+  margin: 0;
+}
+
+#files dt code {
+  font-size: 0.9rem;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+#files dt small {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.55;
+  margin-top: 0.15em;
+  font-variant-numeric: tabular-nums;
+}
+
+#files dd {
+  grid-column: 2;
+  margin-left: 0;
+  padding-top: 0.4em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color, steelblue);
+  border-radius: 50%;
 }
